@@ -557,7 +557,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-div-icon {
 	background: #fff;
-	border: 1px solid #666;
+	border: 1px solid var(--text-color);
 	}
 
 

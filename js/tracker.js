@@ -2133,6 +2133,9 @@ function drawAltitudeProfile(c1, c2, series, alt_max, chase) {
     var len = alt_list.length;
     var real_len = len - series.nulls;
 
+    var fill = getComputedStyle(document.documentElement).getPropertyValue('--chart-fill');
+    var stroke = getComputedStyle(document.documentElement).getPropertyValue('--chart-stroke');
+
     var ctx1 = c1.getContext("2d");
     var ctx2 = c2.getContext("2d");
 
@@ -2148,21 +2151,12 @@ function drawAltitudeProfile(c1, c2, series, alt_max, chase) {
     c1.attr('width', cw1).attr('height', ch1);
     c2.attr('width', cw2).attr('height', ch2);
 
-    if (chase) {
-        ctx1.fillStyle = "#d6f0f9";
-        ctx1.lineWidth = 2 * ratio;
-        ctx1.strokeStyle= "#33B5F5";
-        ctx2.fillStyle = "#d6f0f9";
-        ctx2.lineWidth = 2 * ratio;
-        ctx2.strokeStyle= "#33B5F5";
-    } else {
-        ctx1.fillStyle = "#f9d6d6";
-        ctx1.lineWidth = 2 * ratio;
-        ctx1.strokeStyle= "#f53333";
-        ctx2.fillStyle = "#f9d6d6";
-        ctx2.lineWidth = 2 * ratio;
-        ctx2.strokeStyle= "#f53333";
-    }
+    ctx1.fillStyle = fill;
+    ctx1.lineWidth = 2 * ratio;
+    ctx1.strokeStyle= stroke;
+    ctx2.fillStyle = fill;
+    ctx2.lineWidth = 2 * ratio;
+    ctx2.strokeStyle= stroke;
 
     var xt1 = (cw1 - (2 * ratio)) / real_len;
     var yt1 = (ch1 - (6 * ratio)) / alt_max;
