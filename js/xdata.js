@@ -629,7 +629,6 @@ function parseXDATA(data, pressure, temperature){
             _xdata_temp = parseOzonesonde(_current_xdata, pressure);
             _output = Object.assign(_output,_xdata_temp);
             if (!_instruments.includes("Ozonesonde")) _instruments.push('Ozonesonde');
-            
         } else if (_instrument === '05'){
             // OIF411
             _xdata_temp = parseOIF411(_current_xdata, pressure);
